@@ -1,15 +1,13 @@
 import streamlit as st
-import os
-from db import restio_client
 
-from utils.restio_client import RestIOClient
+from utils.feedback_service import FeedBackService
 
 def on_click_submit():
     st.session_state['disable_submit_button'] = True
 
-def feedback(email: str, name: str):
+def feedback(email: str, name: str, feedback_service: FeedBackService):
     st.title("Presentation Feedback Form")
-    user = next(iter(restio_client.read_by_query({'email': email})), None)
+    user = next(iter(feedback_service.read({'email': email})), None)
     if user:
         st.info('You already provided feedback!')
     else:
@@ -39,7 +37,7 @@ def feedback(email: str, name: str):
                                                       disabled=st.session_state.get('disable_submit_button', False))
                 
                 if submit_button:
-                    restio_client.create({
+                    feedback_service.create({
                         'email': email,
                         'name': name,
                         'position': position,

@@ -1,10 +1,12 @@
 import streamlit as st
 import pandas as pd
-from db import restio_client
+from utils.feedback_service import FeedBackService
 
-def statistics():
+st.set_page_config(layout='wide')
+
+def statistics(feedback_service: FeedBackService):
     st.title("Statistics")
-    feedbacks = restio_client.read_all()
+    feedbacks = feedback_service.read()
     
     st.subheader('Rating per position')
     feedbacks_df = pd.DataFrame(feedbacks)[['position', 'q1', 'q2', 'q3', 'q4', 'q5']]

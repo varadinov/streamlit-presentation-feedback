@@ -2,3 +2,4 @@ streamlit==1.41.1
 requests==2.32.3
 streamlit-oauth==0.1.14
 python-dotenv==1.0.1
+pymongo==4.10.1

@@ -1,4 +1,5 @@
+from pymongo import MongoClient
 from config import config
-from utils.restio_client import RestIOClient
+from pymongo.server_api import ServerApi
 
-restio_client = RestIOClient(config['RESTIO_URL'], config['RESTIO_KEY'])
+mongo_client = MongoClient(config['MONGO_URI'], server_api=ServerApi('1'))

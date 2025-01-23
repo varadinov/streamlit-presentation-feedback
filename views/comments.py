@@ -1,9 +1,10 @@
 import streamlit as st
-from db import restio_client
+from utils.feedback_service import FeedBackService
 
-def comments():
+
+def comments(feedback_service: FeedBackService):
     st.title("Comments")
-    feedbacks = [f for f in restio_client.read_all() if f['q6']]
+    feedbacks = [f for f in feedback_service.read() if f['q6']]
 
     st.write(f'Total feedbacks that provide additional comments: {len(feedbacks)}')
     for feedback in feedbacks:

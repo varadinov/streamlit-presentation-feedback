@@ -17,7 +17,7 @@ def feedback(email: str, name: str, feedback_service: FeedBackService):
             # Feedback position
             positions = ["Software Developer", "Quality Assurance Engineer", "Data science", "Data engineer", 
                          "Database Administrator", "Systems Administrator", "Network Administrator", "Cloud Engineer", 
-                         "Cybersecurity Specialist", "Support Specialist", "Manager", "Director", "Student"]
+                         "Cybersecurity Specialist", "Support Specialist", "Manager", "Director", "Student", "Other"]
             
             position = st.selectbox("Your Position/Occupation", options=positions)
             

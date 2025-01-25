@@ -2,8 +2,6 @@ import streamlit as st
 import pandas as pd
 from utils.feedback_service import FeedBackService
 
-st.set_page_config(layout='wide')
-
 def statistics(feedback_service: FeedBackService):
     st.title("Statistics")
     feedbacks = feedback_service.read()
